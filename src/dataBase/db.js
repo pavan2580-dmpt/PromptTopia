@@ -14,7 +14,8 @@ export const connectToDB = async()=>{
         isConnected = true;
         console.log('mongoDb connected') 
     } catch (error) {
-        console.log("errr",error);
+       return new Response("Failed to fetch the posts", error, { status: 200 })
+
         
     }
 

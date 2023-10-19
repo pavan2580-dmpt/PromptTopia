@@ -10,7 +10,7 @@ export const GET = async(req)=>{
         return new Response(JSON.stringify(prompts),{status:200})
 
     } catch (error) {
-        return new Response("Failed to fetch the posts",error,{status:200})
+         return new Response(JSON.stringify(error),{status:200})
         
     }
 }

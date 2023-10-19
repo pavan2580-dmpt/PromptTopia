@@ -10,7 +10,7 @@ export const GET = async(req)=>{
         return new Response(JSON.stringify(prompts),{status:200})
 
     } catch (error) {
-        console.log(error)
+         return new Response(JSON.stringify(error),{status:200})
         
     }
 }

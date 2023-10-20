@@ -47,7 +47,10 @@ async function handleDelete(){
 
   return (
     <>
-      <div className="w-full bg-white rounded-lg h-[fit] border-2 border-solid border-gray-400 p-2 box-border md:w-[400px] md:justify-start shadow-xl ">
+      {
+        !post:<div>Loading</div> :(
+        <>
+          <div className="w-full bg-white rounded-lg h-[fit] border-2 border-solid border-gray-400 p-2 box-border md:w-[400px] md:justify-start shadow-xl ">
         <div className="flex w-full h-fit items-center justify-between pr-3">
               <div className="flex gap-3  ">
               <span >
@@ -104,6 +107,10 @@ async function handleDelete(){
               }
        
       </div>
+        </>
+        )
+      }
+      
     </>
   );
 }

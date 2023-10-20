@@ -5,6 +5,7 @@ import Skletion from "./Skletion";
 
 const PromptList = ({data,handleTagClick})=>{
   if(!Array.isArray(data))
+    console.log(data)
     return ("This not in array format")
   return (
     <>

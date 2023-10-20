@@ -4,6 +4,8 @@ import PromtCard from "src/app/components/PromtCard.jsx";
 import Skletion from "./Skletion";
 
 const PromptList = ({data,handleTagClick})=>{
+  if(!Array.isArray(data))
+    retun ("This not in array format")
   return (
     <>
       {data.map((post)=>(

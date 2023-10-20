@@ -14,7 +14,7 @@ export const POST = async(req)=>{
 
             return new Response(JSON.stringify(newPrompt),{status:201})
         } catch (error) {
-            return new Response("failed to create a post for you...")
+            return new Response(JSON.stringify("failed to create a post for you..."))
         }
 
 

@@ -31,7 +31,9 @@ export default function Home() {
 
   useEffect(()=>{
     const FetchPost= async()=>{
-      const Res= await fetch('/api/prompt');
+      const Res= await fetch('/api/prompt',{
+       method:"GET", 
+      });
       const data = await Res.json();
       setAllPosts(data);
       SetPosts(data);

@@ -7,7 +7,7 @@ import Skletion from "./Skletion";
 const PromptList = ({data})=>{
   if (!Array.isArray(data)) {
     console.log("Data is not in array format");
-   return "This is not in the array fromat."
+   return "No data is retrived from DataBase."
   }
   return (
     <>

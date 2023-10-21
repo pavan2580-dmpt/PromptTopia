@@ -8,7 +8,7 @@ export const connectToDB = async()=>{
         return ;
     }
     try {
-        await mongoose.connect("mongodb+srv://pavanganesh:pavanganesh@cluster0.axrs7n2.mongodb.net/prompttopia?retryWrites=true&w=majority" || process.env.MOGO,{ useNewUrlParser: true, useUnifiedTopology: true },{
+        await mongoose.connect(process.env.MOGO,{ useNewUrlParser: true, useUnifiedTopology: true },{
             dbName:'propmpttopia'
         })  
         isConnected = true;

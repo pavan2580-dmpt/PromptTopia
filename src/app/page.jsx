@@ -4,7 +4,11 @@ import { useState,useEffect } from "react";
 import PromtCard from "src/app/components/PromtCard.jsx";
 import Skletion from "./Skletion";
 
-const PromptList = ({data,handleTagClick})=>{
+const PromptList = ({data})=>{
+  if (!Array.isArray(data)) {
+    console.log("Data is not in array format");
+   return "This is not in the array fromat."
+  }
   return (
     <>
       {data.map((post)=>(

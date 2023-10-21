@@ -14,8 +14,10 @@ function PromtCard({ post,onDelete}) {
 
   const[copy,SetCopy] = useState('');
   if (!post) {
-    return <div><Skletion/></div>;
+   
+    return (<><Skletion/></>);
   }
+  
   const handlecopy = ()=>{
     SetCopy(post.prompt);
     navigator.clipboard.writeText(post.prompt);

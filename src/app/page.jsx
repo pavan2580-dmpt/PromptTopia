@@ -34,7 +34,8 @@ export default function Home() {
       const Res= await fetch('/api/prompt',{
        method:"GET", 
       });
-      const data = await Res.json();
+      const datas = await Res.json();
+      const data = await datas.json();
       setAllPosts(data);
       SetPosts(data);
       SetLoader(false)

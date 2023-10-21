@@ -4,8 +4,7 @@ import { useState,useEffect } from "react";
 import PromtCard from "src/app/components/PromtCard.jsx";
 import Skletion from "./Skletion";
 
-const PromptList = ({data})=>{
-
+const PromptList = ({data,handleTagClick})=>{
   return (
     <>
       {data.map((post)=>(
@@ -30,9 +29,7 @@ export default function Home() {
 
   useEffect(()=>{
     const FetchPost= async()=>{
-      const Res= await fetch('/api/prompt',{
-        method:'GET',
-      });
+      const Res= await fetch('/api/prompt');
       const data = await Res.json();
       setAllPosts(data);
       SetPosts(data);

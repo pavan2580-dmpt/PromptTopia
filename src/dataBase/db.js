@@ -5,7 +5,7 @@ export const connectToDB = async()=>{
 
     if(isConnected){
         console.log("connected to the db..");
-        return ;
+        return 0;
     }
     try {
         await mongoose.connect(process.env.MOGO,{ useNewUrlParser: true, useUnifiedTopology: true },{

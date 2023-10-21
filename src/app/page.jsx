@@ -7,7 +7,7 @@ import Skletion from "./Skletion";
 const PromptList = ({data})=>{
   if (!Array.isArray(data)) {
     console.log("Data is not in array format");
-   return "No data is retrived from DataBase."
+   return (<Skletion/>)
   }
   return (
     <>
@@ -33,8 +33,10 @@ export default function Home() {
 
   useEffect(()=>{
     const FetchPost= async()=>{
-      const Res= await fetch('/api/prompt');
+      console.log("useEffect")
+      const Res= await fetch('api/prompt');
       const data = await Res.json();
+      console.log(data)
       setAllPosts(data);
       SetPosts(data);
       SetLoader(false)

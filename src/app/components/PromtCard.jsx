@@ -1,10 +1,10 @@
 "use client"
-
+"use strict"
 import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import {usePathname,useRouter} from 'next/navigation';
-
+import Skletion from "../Skletion";
 function PromtCard({ post,onDelete}) {
 
   const {data : session} = useSession();
@@ -14,7 +14,7 @@ function PromtCard({ post,onDelete}) {
 
   const[copy,SetCopy] = useState('');
   if (!post) {
-    return <div>Loading...</div>;
+    return <div><Skletion/></div>;
   }
   const handlecopy = ()=>{
     SetCopy(post.prompt);

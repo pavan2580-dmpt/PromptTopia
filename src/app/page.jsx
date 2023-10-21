@@ -1,16 +1,18 @@
 'use client'
+"use strict"
 import { useState,useEffect } from "react";
 import PromtCard from "src/app/components/PromtCard.jsx";
 import Skletion from "./Skletion";
 
-const PromptList = ({data,handleTagClick})=>{
+const PromptList = ({data})=>{
+
   return (
     <>
       {data.map((post)=>(
         <PromtCard 
         key={post._id}
         post={post}
-        handleTagClick={handleTagClick}
+       
         />
       ))}
     </>
@@ -28,7 +30,9 @@ export default function Home() {
 
   useEffect(()=>{
     const FetchPost= async()=>{
-      const Res= await fetch('/api/prompt');
+      const Res= await fetch('/api/prompt',{
+        method:'GET',
+      });
       const data = await Res.json();
       setAllPosts(data);
       SetPosts(data);
@@ -43,7 +47,6 @@ export default function Home() {
       SetPosts(allPosts)
     }
     else{
-    console.log(inputVal)
     const filteredData = allPosts.filter((post) => post.tag.includes(inputVal)||
      post.creator.username.includes(inputVal)||  post.prompt.includes(inputVal) );
     SetPosts(filteredData);
@@ -86,7 +89,7 @@ export default function Home() {
     <div className="w-full h-fit mt-20 flex
      flex-wrap gap-8 py-10 box-border justify-center overflow-auto ">
       {
-        Loader ? <Skletion/> :<PromptList data={Posts}  />
+        Loader ? <Skletion/> :(<PromptList data={Posts}  />)
       }
        
     

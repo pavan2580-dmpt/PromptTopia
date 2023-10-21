@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from "../components/Loader.jsx";
+import LoggedUserError from "../LoggedUserError.jsx";
 
 function CreatePost() {
   const router = useRouter();
@@ -51,7 +52,9 @@ function CreatePost() {
 
   return (
     <>
-    
+   {
+    session?.user.id ? (
+       
     <div className="w-full h-[100vh] xl:mt-11 lg:mt-5  flex flex-col items-center justify-center md:block" >
     <ToastContainer/>
       <h1 className="text-5xl font-extrabold bg-gradient-to-r from-blue-600  to-sky-600  bg-clip-text text-transparent">Create Post</h1>
@@ -91,6 +94,8 @@ function CreatePost() {
       </form>
     </div>
     
+    ):(<LoggedUserError/>)
+   }
     
     </>
   )

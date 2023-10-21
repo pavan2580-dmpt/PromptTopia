@@ -15,7 +15,8 @@ function Nav() {
   const [show,setshow] = useState(false);
   const [providers,setProviders] = useState(null)
   const route = useRouter();
-        useEffect(()=>{
+
+        useEffect(()=>{  //useEffect to get the providers
           const setUpProvider = async ()=>{
             try {
               const response = await getProviders();
@@ -24,10 +25,10 @@ function Nav() {
               console.error("Error fetching providers:");
             }
           }
-          setUpProvider();
+          setUpProvider();// function call;
         },[])
 
-        function Toggle(){
+        function Toggle(){  //mobile navigation toggle funnction.
          
           if(show)
           {

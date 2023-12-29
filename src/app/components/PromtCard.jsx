@@ -51,7 +51,11 @@ async function handleDelete(){
     <>
       <div className="w-full bg-white rounded-lg h-[fit] border-2 border-solid border-gray-400 p-2 box-border md:w-[400px] md:justify-start shadow-xl ">
         <div className="flex w-full h-fit items-center justify-between pr-3">
-              <div className="flex gap-3  ">
+              <div className="flex gap-3"
+                 onClick={()=>{
+                  router.push(`/profilepage?ids=${post.creator._id}`)
+                 }}
+                >
               <span >
               <Image 
              src={post.creator.image}
@@ -59,9 +63,6 @@ async function handleDelete(){
              width={50}
              height={50}
              className="rounded-full cursor-pointer"
-             onClick={()=>{
-              router.push(`/profilepage?ids=${post.creator._id}`)
-             }}
              />
               </span>
               

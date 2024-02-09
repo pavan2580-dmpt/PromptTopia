@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import {usePathname,useRouter} from 'next/navigation';
 import Skletion from "../Skletion";
+import UserIcon from './assests/usericon.png'
 function PromtCard({ post,onDelete}) {
 
   const {data : session} = useSession();
@@ -50,24 +51,26 @@ async function handleDelete(){
   return (
     <>
       <div className="w-full bg-white rounded-lg h-[fit] border-2 border-solid border-gray-400 p-2 box-border md:w-[400px] md:justify-start shadow-xl ">
-        <div className="flex w-full h-fit items-center justify-between pr-3">
-              <div className="flex gap-3  ">
+        <div className="flex w-full h-fit items-center justify-between pr-3  ">
+              <div className="flex gap-3 cursor-pinter ">
               <span >
               <Image 
-             src={post.creator.image}
-             alt="user_image"
+             src={post.creator.image || UserIcon}
+             alt="image"
              width={50}
              height={50}
-             className="rounded-full cursor-pointer"
+             className="rounded-full cursor-pointer text-sm overflow-hidden"
              onClick={()=>{
               router.push(`/profilepage?ids=${post.creator._id}`)
              }}
              />
               </span>
               
-               <div className="w-[230px] text-ellipsis">
-               <h3 className="text-md font-bold lg:text-xl">{post.creator.username}</h3>
-               <p className="text-sm text-gray-500 font-medium lg:text-md">{post.creator.email}</p>
+               <div className="w-[200px] text-ellipsis cursor-pointer"  onClick={()=>{
+              router.push(`/profilepage?ids=${post.creator._id}`)
+             }}>
+               <h3 className="text-md font-bold lg:text-xl text-ellipsis">{post.creator.username}</h3>
+               <p className="text-sm text-gray-500 font-medium lg:text-md text-ellipsis">{post.creator.email}</p>
                </div>
 
               </div>

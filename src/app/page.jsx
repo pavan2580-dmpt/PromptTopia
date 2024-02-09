@@ -33,10 +33,8 @@ export default function Home() {
 
   useEffect(()=>{
     const FetchPost= async()=>{
-      console.log("useEffect")
       const Res= await fetch('api/prompt');
       const data = await Res.json();
-      console.log(data)
       setAllPosts(data);
       SetPosts(data);
       SetLoader(false)
@@ -45,16 +43,25 @@ export default function Home() {
   },[])
 
   const handleSearchChange = (e) => {
-    const inputVal = e.target.value;
-    if(inputVal.trim() === ' '){
-      SetPosts(allPosts)
+    const inputVal = e.target.value.trim(); 
+    if (inputVal === '') {
+        SetPosts(allPosts); 
+    } else {
+        const filteredData = allPosts.filter((post) => {
+            const lowerInputVal = inputVal.toLowerCase();
+            const lowerTag = post.tag.toLowerCase();
+            const lowerUsername = post.creator.username.toLowerCase();
+            const lowerPrompt = post.prompt.toLowerCase();
+            return (
+                lowerTag.includes(lowerInputVal) ||
+                lowerUsername.includes(lowerInputVal) ||
+                lowerPrompt.includes(lowerInputVal)
+            );
+        });
+        SetPosts(filteredData);
     }
-    else{
-    const filteredData = allPosts.filter((post) => post.tag.includes(inputVal)||
-     post.creator.username.includes(inputVal)||  post.prompt.includes(inputVal) );
-    SetPosts(filteredData);
-    }
-  }
+};
+
 
 
   

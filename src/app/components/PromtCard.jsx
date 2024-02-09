@@ -59,7 +59,7 @@ async function handleDelete(){
              alt="image"
              width={50}
              height={50}
-             className="rounded-full cursor-pointer"
+             className="rounded-full cursor-pointer text-sm overflow-hidden"
              onClick={()=>{
               router.push(`/profilepage?ids=${post.creator._id}`)
              }}
